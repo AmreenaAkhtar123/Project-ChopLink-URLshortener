@@ -11,7 +11,7 @@ const page = () => {
 					</h1>
 					<p className="text-gray-600 max-w-2xl mx-auto mb-12">
 						ChopLink is a simple and powerful URL shortener that helps you share links
-						effortlessly. Whether you're a student, developer, or business, ChopLink
+						effortlessly. Whether you are a student, developer, or business, ChopLink
 						makes your long links short, clean, and trackable.
 					</p>
 
