@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Home() {
 	return (
 		<main>
-			<section className="text-gray-600 body-font mt-20">
+			<section className="text-gray-600 body-font mt-20 mb-20">
 				<div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
 					<div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
 						<h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Shorten your links.
@@ -15,7 +15,7 @@ export default function Home() {
 							<Link href="/shorten" ><button className="inline-flex text-white bg-[#162556] border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Try Now
 							</button></Link>
 
-							
+
 						</div>
 					</div>
 					<div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
@@ -31,7 +31,7 @@ export default function Home() {
 						Why Choose <span className="text-indigo-600">ChopLink?</span>
 					</h2>
 
-					<div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+					<div className="grid gap-8 md:grid-cols-3 justify-center">
 						{/* Card 1 */}
 						<div className="bg-gray-50 p-6 rounded-2xl shadow hover:shadow-lg transition">
 							<div className="text-indigo-600 mb-4 text-4xl">🔗</div>
@@ -43,18 +43,9 @@ export default function Home() {
 							</p>
 						</div>
 
-						{/* Card 2 */}
-						<div className="bg-gray-50 p-6 rounded-2xl shadow hover:shadow-lg transition">
-							<div className="text-indigo-600 mb-4 text-4xl">📊</div>
-							<h3 className="text-lg font-semibold text-gray-800 mb-2">
-								Track Analytics
-							</h3>
-							<p className="text-gray-600 text-sm">
-								Monitor clicks, performance, and link engagement easily.
-							</p>
-						</div>
+						{/* Card 2 (Removed) */}
 
-						{/* Card 3 */}
+						{/* Card 2 (was 3) */}
 						<div className="bg-gray-50 p-6 rounded-2xl shadow hover:shadow-lg transition">
 							<div className="text-indigo-600 mb-4 text-4xl">🛡</div>
 							<h3 className="text-lg font-semibold text-gray-800 mb-2">
@@ -65,7 +56,7 @@ export default function Home() {
 							</p>
 						</div>
 
-						{/* Card 4 */}
+						{/* Card 3 (was 4) */}
 						<div className="bg-gray-50 p-6 rounded-2xl shadow hover:shadow-lg transition">
 							<div className="text-indigo-600 mb-4 text-4xl">⚡</div>
 							<h3 className="text-lg font-semibold text-gray-800 mb-2">
@@ -78,6 +69,7 @@ export default function Home() {
 					</div>
 				</div>
 			</section>
+
 
 
 
@@ -108,7 +100,7 @@ export default function Home() {
 							</p>
 						</div>
 
-						
+
 
 						{/* FAQ Item 3 */}
 						<div className="bg-white p-6 rounded-2xl shadow hover:shadow-md transition">
