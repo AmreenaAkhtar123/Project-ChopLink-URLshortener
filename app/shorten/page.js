@@ -34,7 +34,7 @@ const Page = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        setGenerated(`${process.env.NEXT_PUBLIC_HOST}/${shorturl}`);
+        setGenerated(`${window.location.origin}/${shorturl}`);
         setUrl("");
         setShorturl("");
         setMessage(result.message || "✅ Short URL generated!");
