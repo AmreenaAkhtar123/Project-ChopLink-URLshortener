@@ -11,39 +11,37 @@ const Page = () => {
   const [copied, setCopied] = useState(false);
 
   const generate = () => {
-    if (!url || !shorturl) {
-      setMessage("⚠️ Please enter both fields!");
-      return;
-    }
+  if (!url || !shorturl) {
+    setMessage("⚠️ Please enter both fields!");
+    return;
+  }
 
-    setLoading(true);
-    setMessage("");
+  setLoading(true);
+  setMessage("");
 
-    const myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
+  fetch("/api/generate", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ url, shorturl }),
+  })
+    .then(async (res) => {
+      const result = await res.json();
 
-    const raw = JSON.stringify({
-      url: url,
-      shorturl: shorturl,
-    });
+      if (!res.ok || result.error) {
+        throw new Error(result.message || "Failed to generate URL");
+      }
 
-    fetch("/api/generate", {
-      method: "POST",
-      headers: myHeaders,
-      body: raw,
+      setGenerated(`${window.location.origin}/${shorturl}`);
+      setUrl("");
+      setShorturl("");
+      setMessage(result.message || "✅ Short URL generated!");
     })
-      .then((res) => res.json())
-      .then((result) => {
-        setGenerated(`${window.location.origin}/${shorturl}`);
-        setUrl("");
-        setShorturl("");
-        setMessage(result.message || "✅ Short URL generated!");
-      })
-      .catch(() => {
-        setMessage("❌ Something went wrong. Please try again!");
-      })
-      .finally(() => setLoading(false));
-  };
+    .catch((err) => {
+      setMessage("❌ " + err.message);
+    })
+    .finally(() => setLoading(false));
+};
+
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(generated);
