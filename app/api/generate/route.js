@@ -28,14 +28,14 @@ export async function POST(request) {
       message: "URL Generated Successfully"
     })
   } catch (error) {
-    console.error("API Error:", error)
-    return new Response(
-      JSON.stringify({
-        success: false,
-        error: true,
-        message: "Internal Server Error"
-      }),
-      { status: 500, headers: { "Content-Type": "application/json" } }
-    )
-  }
+  console.error("API Error:", error.message, error.stack);
+  return new Response(
+    JSON.stringify({
+      success: false,
+      error: true,
+      message: "Internal Server Error: " + error.message
+    }),
+    { status: 500, headers: { "Content-Type": "application/json" } }
+  );
+}
 }
